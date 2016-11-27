@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\administrator\dropbox\studywork\liforstudent\listandvector\listandvector\main.cpp(51): warning C4101: 'ope': unreferenced local variable
+  listAndVector.vcxproj -> C:\Users\Administrator\Dropbox\studyWork\liForStudent\listAndVector\Debug\listAndVector.exe
+  listAndVector.vcxproj -> C:\Users\Administrator\Dropbox\studyWork\liForStudent\listAndVector\Debug\listAndVector.pdb (Partial PDB)

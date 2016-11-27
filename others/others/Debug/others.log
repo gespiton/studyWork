@@ -1,0 +1,4 @@
+﻿  Pro2.cpp
+d:\我的文档\documents\visual studio 2015\projects\others\others\pro2.cpp(35): warning C4800: 'unsigned int': forcing value to bool 'true' or 'false' (performance warning)
+  others.vcxproj -> d:\我的文档\documents\visual studio 2015\Projects\others\Debug\others.exe
+  others.vcxproj -> d:\我的文档\documents\visual studio 2015\Projects\others\Debug\others.pdb (Full PDB)
