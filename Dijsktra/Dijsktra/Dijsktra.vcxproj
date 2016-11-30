@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClInclude Include="Dijsktra.hpp" />
     <ClInclude Include="Graph.hpp" />
+    <ClInclude Include="Manager.hpp" />
     <ClInclude Include="Queue.hpp" />
   </ItemGroup>
   <ItemGroup>

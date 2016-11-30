@@ -2,13 +2,22 @@
 #include"Dijsktra.hpp"
 #include"Queue.hpp"
 #include<functional>
+#include<regex>
+#include"Manager.hpp"
+#include<Windows.h>
+void test_regex();
+//void displayGuide(Graph g);
+
+
 int main() {
+	SetConsoleTitle("XMU map system");
+	//SetConsoleCursorPosition(3, 4);
+	//MessageBox(NULL, TEXT("GetStdHandle"), TEXT("Console Error"),
+	//	MB_OK);
 
-
-	Graph("graph.txt");
-	Dijsktra g(Graph("graph.txt"));
-	g.travelTo("海韵学生公寓");
-
+	//test_regex();
+	Manager m(Graph("graph.txt"));
+	m.Start();
 	system("pause");
 }
 void test1() {
@@ -36,5 +45,17 @@ void test1() {
 	//}
 }
 void test2() {
+	Graph("graph.txt");
+	Dijsktra g(Graph("graph.txt"));
+	//g.travel("海韵学生公寓");
 
 }
+void test_regex() {
+	regex r("^[ ]*\\d+[ ]*$");
+	string target = "345534  ";
+	string target2 = "3455 34";
+	//match_results<string> result;
+	cout << regex_match(target,r);
+}
+
+

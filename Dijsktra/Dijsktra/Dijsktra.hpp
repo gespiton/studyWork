@@ -40,6 +40,7 @@ private:
 	void buildV() {
 		for each (auto var in graph.description)
 		{
+			//table name->Vetex* , update V
 			auto buf = new Vetex(var.first, var.second);
 			V.push_back(buf);
 			table[var.first] = buf;
@@ -47,29 +48,33 @@ private:
 
 		for each (auto var in graph.edges)
 		{
+			// build the connection between Vetexes
 			auto &bufV = table[var.first];
 			for (auto &s : var.second) {
 				bufV->adj.push_back(table[s]);
 			}
 		}
 
-		for each (auto var in V)
+		/*for each (auto var in V)
 		{
-			//cout << var->name << "  " << var->adj.size()<<endl;
-		}
+			cout << var->name << "  " << var->adj.size()<<endl;
+		}*/
 	}
 
 	void dj(string s) {
 
 		for each (auto v in V)
 		{
+			v->known = false;
+			v->distance = 100000;
+			v->p = nullptr;
 			pQueue.enQueue(v);
 		}
 
 		Vetex* curV = table[s];
 		curV->distance = 0;
 		pQueue.adjust(curV);
-		pQueue.print();
+		//pQueue.print();
 
 		while (!pQueue.isEmpty())
 		{
@@ -83,7 +88,7 @@ private:
 					v->p = curV;
 					
 					pQueue.adjust(v);
-					cout << pQueue.top()->name << "  " << pQueue.top()->distance << endl;
+					//cout << pQueue.top()->name << "  " << pQueue.top()->distance << endl;
 				}
 			}
 			curV->known = true;
@@ -92,18 +97,26 @@ private:
 	
 	string travelTo(Vetex* v);
 public:
-	void travelTo(string des);
+	void travel(string s,string des);
 	Dijsktra(Graph& G):graph(G) {
 		buildV();
-		dj("±±√≈");
 	}
-	~Dijsktra(){}
+
+	~Dijsktra(){
+		for each (auto var in V)
+		{
+			delete var;
+		}
+	}
 	//priority_queue<Vetex*, vector<Vetex*>, comparator> pQueue;
 
 
 };
 
-void Dijsktra::travelTo(string des) {
+void Dijsktra::travel(string s,string des) {
+	
+
+	dj(s);
 	auto v = table[des];
 	if (v!=nullptr)
 	{

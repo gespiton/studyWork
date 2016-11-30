@@ -33,13 +33,14 @@ public:
 		return edgeLen;
 	}
 
-	~Graph(){}
 
 	int intermediate;
 	int edge;
 	map<string, string>description;
 	map<string, list<string>>edges;
 	map<string, map<string, int>> edgeLen;
+	vector<string> spot;
+	~Graph(){}
 private:
 	//friend Dijsktra;
 
@@ -60,7 +61,7 @@ private:
 
 
 	bool storeGraph(fstream&file) {
-
+		// get description and store order
 		for (size_t i = 0; i < intermediate; i++)
 		{
 			string buf;
@@ -72,7 +73,10 @@ private:
 			int prePos = buf.find_first_of('(');
 			int postPos = buf.find_first_of(')');
 			description[buf.substr(0, prePos)] = buf.substr(prePos+1, postPos - prePos-1);
+			spot.push_back(buf.substr(0, prePos));
 		}
+
+
 		for (size_t i = 0; i < edge; i++)
 		{
 			string lhs, rhs,buf;
